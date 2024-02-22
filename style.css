@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css?family=Sacramento');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Protest+Riot&display=swap');
+
+#carta {
+  height: 500px;
+  width: 800px;
+  margin: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  visibility: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+#carta h2 {
+   font-size:3em;
+   font-family: "Dancing Script", cursive;
+   margin:0;
+   color:#020202;
+   text-align: center;
+}
+#carta p {
+   font-size: 1.1em;
+   text-align: justify;
+   padding-left: 10px; /* Espacio en blanco a la izquierda */
+   padding-right: 10px; /* Espacio en blanco a la derecha */
+}
+
+.lado {
+   background:#ded8c4;
+   height:550px;
+   width:400px;
+/*    border:1px solid red; */
+   padding:10px;
+}
+
+.lado.uno {
+   width:320px;
+   transform:skew(10deg,20deg);
+ background:#ded8c4;
+}
+.lado.dos {
+   transform:skew(10deg,-15deg);
+   background:#ded8c4;
+}
+
+body {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+   font-family: "Pacifico", cursive;
+   background: url(fondo.png);
+   background-position: center;
+    background-size: cover;
+   overflow: hidden;
+ }
+ 
+ .dia-de-san-valentin {
+   position: relative;
+   cursor: pointer;
+ }
+ 
+ .sobre {
+   position: relative;
+   filter: drop-shadow(0 0 25px rgba(0,0,0,.3));
+ }
+ 
+ .sobre:before {
+   content:"";
+   position: absolute;
+   width:254px;
+   height:254px;
+   background-color: #d7842d;
+   transform: rotate(-45deg);
+   border-radius: 0 15px 0 0;
+   left:-37px;
+   top:-82px;
+ }
+ 
+ .sobre:after {
+   content:"";
+   position: absolute;
+   background-color: #d7842d;
+   width:360px;
+   height:225px;
+   left:-90px;
+   top:45px;
+ }
+ 
+ .corazon {
+   position: relative;
+   background-color: #190042;
+   display: inline-block;
+   height: 180px;
+   top:50px;
+   left:0;
+   transform: rotate(-45deg);
+   width:180px;
+   filter: drop-shadow(0 -10px 25px rgba(0,0,0,.3));
+   transition: .5s;
+ }
+   
+ .corazon:before, .corazon:after {
+   content:"";
+   background-color: #190042;
+   border-radius:50%;
+   height: 180px;
+   width: 180px;
+   position: absolute;
+   }
+   
+ .corazon:before {
+   top:-100px;
+   left:0;}
+   
+ .corazon:after {
+   left:100px;
+   top:0;}
+ 
+ .frente {
+   position: absolute;
+   width:0;
+   height:0;
+   border-right: 190px solid #c48a1e;
+   border-top: 113px solid transparent;
+   border-bottom: 113px solid transparent;
+   top:44px;
+   left:80px;
+   z-index:4;
+ }
+ 
+ .frente:before {
+   content:"";
+   position: absolute;
+   width:0;
+   height:0;
+   border-left: 190px solid #fee5a3;
+   border-top: 113px solid transparent;
+   border-bottom: 113px solid transparent;
+   top:-113px;
+   left:-170px;
+ }
+ 
+ .frente:after {
+   width:0;
+   height:0;
+   position: absolute;
+   content:"";
+   border-bottom: 150px solid #e7bb62;
+   border-right:180px solid transparent;
+   border-left: 180px solid transparent;
+   top:-36px;
+   left:-170px;
+ }
+ 
+ .texto {
+   position: absolute;
+   
+
+   font-weight: bold;
+
+   letter-spacing:5px;
+   text-align: center;
+   color: #d2812c;
+   z-index:2;
+   top:80px;
+   left:15px;
+   transition: .5s;
+ }
+ 
+ .dia-de-san-valentin:hover .corazon {
+   transform: translateY(-50px) rotate(-45deg);
+ }
+ 
+ .dia-de-san-valentin:hover .texto {
+   transform: translateY(-50px);
+ }
+ 
+ 
+ span{
+  position: absolute;
+  filter: drop-shadow(0 0 1em rgba(0,0,0,0.5));
+  pointer-events: none;
+  animation: animCorazon 1s linear infinite;
+}
+@keyframes animCorazon {
+  0%,100%{
+      opacity: 0;
+  }
+  20%,80%{
+      opacity: 1;
+  }
+}
+span::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url(manito.png);
+  background-size: cover;
+  animation: corazon 1s linear infinite;
+}
+@keyframes corazon {
+  0%{
+      transform: translate(0) rotate(0deg);
+  }
+  100%{
+      transform: translate(20em) rotate(360deg);
+  }
+}
